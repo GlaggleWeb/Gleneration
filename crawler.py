@@ -58,7 +58,7 @@ def upload_to_hf(file_name):
         api.upload_file(
             path_or_fileobj=file_name,
             path_in_repo=file_name,
-            repo_id=DATASET_REPO_ID,
+            repo_id=GlaggleWeb/glenerationwissen,
             repo_type="dataset",
             token=token,
             commit_message="Erweitere linguistisches Basis-Wissen"
