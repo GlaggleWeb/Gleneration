@@ -8,7 +8,7 @@ DATASET_REPO_ID = "GlaggleWeb/glenerationwissen"  # <-- Exakt an dein Repo angep
 FILE_NAME = "wissen.txt"
 
 ALLGEMEINE_THEMEN = [
-    "Deutsche_Sprache", "Grammatik", "Umgangssprache", "Kommunikation", 
+    "Grammatik", "Umgangssprache", "Kommunikation", 
     "Alltag", "Kultur", "Natur", "Freundschaft", "Familie", "Sport", 
     "Musik", "Literatur", "Geographie", "Kunst", "Kochen", "Geschichte",
     "Philosophie", "Architektur", "Astronomie", "Biologie", "Chemie"
