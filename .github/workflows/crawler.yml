@@ -1,0 +1,33 @@
+name: KI Gleneration Wissens Crawler
+
+# Hier stellen wir ein, wann der Bot laufen soll
+on:
+  schedule:
+    - cron: '0 6 * * *' # Läuft jeden Tag automatisch um 06:00 Uhr UTC
+  workflow_dispatch:    # Erlaubt es dir, den Crawler jederzeit manuell per Knopfdruck zu starten
+
+jobs:
+  run-crawler:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Den Code aus deinem GitHub-Repo laden
+      - name: Code auschecken
+        uses: actions/checkout@v4
+
+      # 2. Eine virtuelle Python-Umgebung einrichten
+      - name: Python einrichten
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # 3. Die Werkzeuge installieren, die dein Skript braucht
+      - name: Abhängigkeiten installieren
+        run: |
+          pip install requests huggingface_hub
+
+      # 4. Das Python-Skript starten und das Hugging Face Secret übergeben
+      - name: Crawler ausführen
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }} # Holt das Passwort sicher aus deinen GitHub-Einstellungen
+        run: python crawlergn.py
